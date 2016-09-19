@@ -3,7 +3,7 @@ package introunit;
 public class StudentClass{
 
 	//field
-	private String name;
+	private String name; // encapsulation
 	
 	//constructor (no return type. it creates students)
 	public StudentClass(String name){

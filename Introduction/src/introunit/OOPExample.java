@@ -13,10 +13,10 @@ public class OOPExample {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		StudentClass jillian = new Senior("Jillian");
+		StudentClass jillian = new Senior("Jillian","programmer");//polymorphism, calling a senior a student
 		StudentClass jordan = new StudentClass("Jordan");
 		StudentClass joeseph = new StudentClass("Joeseph");
-		jillian.talk();
+		jillian.talk(); 
 		jordan.talk();
 		joeseph.talk();
 
