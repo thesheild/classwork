@@ -1,17 +1,18 @@
-package datatypes;
+package chatBox;
 
 import java.util.Scanner;
 
-public class StringPractice {
+public class Anna {
 
 	static Scanner input;
 	static String user;
 	//static int lineCount;
 	static boolean inLoop;
 	static String response;
+	static Topic school;
 	
 	public static void main (String[] args){
-		createAScanner();
+		createTopic();
 		//lineCount = 0;
 		//demonstrateStringMethods();
 		promptName();
@@ -32,8 +33,9 @@ public class StringPractice {
 				if (response.indexOf("good")>0){
 					print("I'm so happy you're good");
 				}
-				else {
-					print("I'm sorry I dont understand you.");
+				else if(response.indexOf("school") >=0 ) {
+					inLoop = false;
+					school.talk();
 				}
 		}
 	}
@@ -78,8 +80,9 @@ public class StringPractice {
 		System.out.println(printString);
 	}
 	
-	private static void createAScanner() {
+	private static void createTopic() {
 		input = new Scanner(System.in);
+		school = new School();
 	}
 	
 	public static void demonstrateStringMethods(){
