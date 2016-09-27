@@ -9,7 +9,7 @@ public class School implements Topic {
 		
 	}
 	
-	private void talk(){
+	public void talk() {
 		inSchoolLoop = true;
 		while (inSchoolLoop){
 			Anna.print("Tell me about school.");

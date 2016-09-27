@@ -10,6 +10,7 @@ public class Anna {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
+	static Topic like;
 	
 	public static void main (String[] args){
 		createTopic();
@@ -30,14 +31,85 @@ public class Anna {
 		while(inLoop){
 				print("Greetings, " + user + ". How are you doing?");
 				response = getInput(); 
-				if (response.indexOf("good")>0){
+				if (findKeyword(response, "good", 0) >= 0){
 					print("I'm so happy you're good");
 				}
-				else if(response.indexOf("school") >=0 ) {
+				else if (findKeyword(response, "like", 0) >= 0){
+					inLoop = false;
+					like.talk();
+				}
+				
+				else if (findKeyword(response, "school", 0) >= 0){
 					inLoop = false;
 					school.talk();
 				}
 		}
+	}
+	
+	public static int findKeyword(String searchString, String key, int startIndex) {
+		//delete white space
+		String phrase = searchString.trim();
+		//set all letters to lowercase
+		// prevents case sensitive
+		phrase = phrase.toLowerCase();
+		key = key.toLowerCase();
+		
+		//System.out.println("the phrase is " + phrase);
+		//System.out.println("the key is " +key);
+		
+		//find position of key
+		int psn = phrase.indexOf(key);
+		//System.out.println("the position found is " + psn);
+		//keep looking for the word until you find the right context
+		while(psn >= 0){
+			String before = " ";
+			String after = " ";
+			//if the phrase does not end with this word
+			if(psn + key.length() < phrase.length()){
+				after = phrase.substring(psn +key.length(), psn + key.length()+1).toLowerCase();
+				//System.out.println("the character after " + key + " is " + after);
+			}
+			// if the phrase doesnt begin with this word
+			if(psn>0){
+				before = phrase.substring(psn-1, psn).toLowerCase();
+				//System.out.println("the character before " + key + " is " + before);
+			}
+			if (before.compareTo("a") < 0 && after.compareTo("a")<0){
+				//System.out.println(key + " was found at  " + psn);
+				if(noNegotiations(phrase,psn)){
+				return psn;
+				}
+			}
+			psn = phrase.indexOf(key,psn+1);
+			//System.out.println(key + " was not found. " + " checking " +psn);
+		}
+		
+		return -1;
+	}
+	
+	//helper method a method that contribute functionality to another method
+	//helper methods are very common when you need to do the same thing repeatedly
+	// they also help make methods more readable
+	//it is private because it is only used by the method it is helping
+	private static boolean noNegotiations(String phrase, int index){
+		//check for the word "no "(3 characters)
+		// check to see if there is space for the word no to be in front of the index
+		if (index - 3 >=0 && phrase.substring(index-3, index).equals("no ")){
+			return false;
+		}
+		//check for "not "
+		if (index - 4 >=0 && phrase.substring(index-4, index).equals("not ")){
+			return false;
+		}
+		//check for "never "
+		if (index - 6 >=0 && phrase.substring(index-6, index).equals("never ")){
+			return false;
+		}
+		//check for "n't "
+		if (index - 4 >=0 && phrase.substring(index-4, index).equals("n't ")){
+			return false;
+		}
+		return true;
 	}
 	
 	private static void promptInput() {
@@ -83,6 +155,7 @@ public class Anna {
 	private static void createTopic() {
 		input = new Scanner(System.in);
 		school = new School();
+		like = new AnnaLikes();
 	}
 	
 	public static void demonstrateStringMethods(){
