@@ -31,5 +31,12 @@ public class AnnaLikes implements Topic{
 			}
 		}
 	}
+	public boolean isTriggered(String userInput) {
+		String[] triggers = {"school", "class", "teacher"};
+		if (Anna.findKeyword(userInput, "like", 0)>=0){
+			return true;
+		}
+		return false;
+	}
 
 }
