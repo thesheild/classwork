@@ -1,4 +1,4 @@
-package chatBox;
+package chatBox; 
 
 import java.util.Scanner;
 
