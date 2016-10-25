@@ -1,6 +1,6 @@
 package array;
 
-public class Array2 {
+public class Array2 { 
 	public static void main(String[] args){
 		int[] arr = new int[50];
 		System.out.println("First Array");
@@ -28,5 +28,20 @@ public class Array2 {
 		for(int s: a){
 			System.out.println(s);
 		}
+	}
+	private static void dice(int[] a){
+		for(int i=0; i<a.length; i++){
+			double rand = Math.random(); 
+			int x = (int) (6 * rand);
+			double num = Math.random(); 
+			int y = (int) (6 * num);
+			a[i] = x + y;
+		}
+		for(int i=0; i<a.length; i++){
+			//results[a[i]-2]++;
+		}
+//		for(int i=0; i<a.length; i++){
+//			System.out.println((1+i)+" is rolled " + (double)(a[i])/(arr/));
+//		}
 	}
 }
