@@ -17,6 +17,31 @@ public class ArrayMethods {
 		//int[] subArr = getSubArray()
 	}
 	
+	private static void testPrimesTest(int numberToTest){
+		int lastToCheck = (int) (Math.sqrt(numberToTest));
+		boolean[] theNumbers = new boolean[numberToTest];
+		for(int i=0;i<numberToTest;i++){
+			theNumbers[i]=true;
+		}
+		theNumbers[0] = false;
+		theNumbers[1] = false;
+		boolean first = true;
+		int increment = 2;
+		for(int test = 2; test<=numberToTest; test = test + increment){
+			if(!first){
+				theNumbers[test]=false;
+			}
+			else{
+				first = false;
+			}
+		}
+		for (int i = 0; i<theNumbers.length; i++){
+			if(theNumbers[i]){
+				System.out.println(i+ "is prime.");
+			}
+		}
+	}
+	
 	public static int[] getSubArray(int[]arr, int startIndex, int endIndex){
 		int[] subArray = new int[endIndex - startIndex + 1];
 		for(int i=0; i<subArray.length; i++){
@@ -25,19 +50,19 @@ public class ArrayMethods {
 		return subArray;
 	}
 	
-	public static boolean contains(int[]arr, int[] subArray){// do this at home 
-		for(int i=0; i<arr.length; i++){
-			if(arr[i] == subArray[0]){
-				//check the rest of the elements
-				int j =i;
-				while (j <arr.length){
-					if(subArray[j] == arr && ){
-						
-					}
-				}
-			}
-		}
-	}
+//	public static boolean contains(int[]arr, int[] subArray){// do this at home 
+//		for(int i=0; i<arr.length; i++){
+//			if(arr[i] == subArray[0]){
+//				//check the rest of the elements
+//				int j =i;
+//				while (j <arr.length){
+//					if(subArray[j] == arr && ){
+//						
+//					}
+//				}
+//			}
+//		}
+//	}
 	
 	private static void print(int[]arr){
 		for(int i=0; i<arr.length-1;i++){
