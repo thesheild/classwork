@@ -13,8 +13,9 @@ public class ArrayMethods {
 //		else{
 //			System.out.println("The number you are searching for is greater than or equal to the value in the middle of the array");
 //		}
-		int[] arr = {3,6,9,11,14,16};
+		int[] arr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 		//int[] subArr = getSubArray()
+		testPrimes(20);
 	}
 	
 	private static void testPrimesTest(int numberToTest){
@@ -25,14 +26,23 @@ public class ArrayMethods {
 		}
 		theNumbers[0] = false;
 		theNumbers[1] = false;
-		boolean first = true;
-		int increment = 2;
-		for(int test = 2; test<=numberToTest; test = test + increment){
-			if(!first){
-				theNumbers[test]=false;
-			}
-			else{
-				first = false;
+		for(int prime=2; prime<=lastToCheck; prime++){
+			//when checking 50 numbers, test 2.3.4.5.6.7 as if prime
+			if(theNumbers[prime]){
+				//checks only numbers that are prime
+				//(numbers that havent been crossed off)
+				//wont check 4 and 6 (crossed of by 2)
+				System.out.println(prime+ " is prime. Crossing off: ");
+				int increment = prime;
+				boolean first = true;
+				for(int test = prime; test<=numberToTest; test = test + increment){
+					if(!first){
+						theNumbers[test]=false;
+					}
+					else{
+						first = false;
+					}
+				}
 			}
 		}
 		for (int i = 0; i<theNumbers.length; i++){
@@ -40,6 +50,41 @@ public class ArrayMethods {
 				System.out.println(i+ "is prime.");
 			}
 		}
+	}
+	
+	private static void testPrimes(int numberToTest) {
+		int lastToCheck = (int)(Math.sqrt(numberToTest));
+		boolean[] theNumbers = new boolean[numberToTest];
+		for(int i=0; i < numberToTest; i++){
+			theNumbers[i] = true;
+		}
+		theNumbers[0] = false;
+		theNumbers[1] = false;
+		
+		for(int prime = 2; prime <= lastToCheck; prime++){
+			//when checking 50 numbers,
+			//tests 2,3,4,5,6,7 as if prime
+			if(theNumbers[prime]){
+				//only checks numbers that are prime
+				//(numbers that haven't been "crossed off")
+				//won't check 4 and 6 (crossed off by 2)
+				System.out.println("\n"+prime+ " is prime. "
+						+ "Crossing off:");
+
+				for(int test = prime + prime; test < numberToTest; 
+						test = test + prime){
+					System.out.print(test+", ");
+					theNumbers[test] = false;
+				}
+			}
+		}
+		System.out.println();
+		for(int i = 0; i < theNumbers.length; i++){
+			if(theNumbers[i]){
+				System.out.println(i + " is prime.");
+			}
+		}
+		
 	}
 	
 	public static int[] getSubArray(int[]arr, int startIndex, int endIndex){
