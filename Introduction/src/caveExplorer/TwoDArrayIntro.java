@@ -32,7 +32,10 @@ public class TwoDArrayIntro {
 
 	private static void startExploring() {
 		while(true){
-			//printPic(pic);
+			for(int i=0; i<pic.length; i++){
+				
+			}
+			Practice.printPic(pic);
 			System.out.println("You are in room "+ arr2d[i][j]);
 			System.out.println("What do you want to do");
 			String input = in.nextLine();
