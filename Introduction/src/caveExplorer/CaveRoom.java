@@ -108,9 +108,8 @@ public class CaveRoom {
 		description = string;
 	}
 
-	public void setConnection(CaveRoom caveRoom) {
+	public void interpretInput(String input) {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
