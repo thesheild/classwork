@@ -13,15 +13,49 @@ public class Practice {
 	}
 
 	private static void createMap(String[][] m) {
+		for(int row = 0 ; row < m.length; row++){
+			for(int col = 0; col<m[row].length; col++){
+				m[row][col]=" ";
+			}
+		}
 		for(int i=0; i<m[0].length; i++){
 			m[0][i]="_";
-		}
+		}//top row
 		for(int i=1; i<m.length; i++){
 			m[i][0]="|";
+		}//left side
+		for(int i=1; i<m[0].length; i++){
+			m[m.length-1][i]="_";
+		}//bottom row
+		for(int i=1; i<m.length; i++){
+			m[i][m[0].length-1]="|";
+		}//right side
+
+		for(int i=0; i<m[0].length; i++){
+			m[m.length/4][i]="_";
 		}
 		for(int i=0; i<m[0].length; i++){
-			m[m[0].length-1][i]="_";
+			m[m.length/2][i]="_";
 		}
+		for(int i=0; i<m[0].length; i++){
+			m[(m.length*3)/4][i]="_";
+		}
+		
+		for(int i=1; i<m.length; i++){
+		m[i][m[0].length/5]="|";
+		}
+		for(int i=1; i<m.length; i++){
+			m[i][m[0].length*2/5]="|";
+		}
+		for(int i=1; i<m.length; i++){
+			m[i][m[0].length*3/5]="|";
+		}
+		for(int i=1; i<m.length; i++){
+			m[i][m[0].length*4/5]="|";
+		}
+
+		
+//		m[1][29]="|";
 		//work on this
 	}
 
