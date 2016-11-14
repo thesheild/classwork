@@ -18,7 +18,7 @@ public class Practice {
 				m[row][col]=" ";
 			}
 		}
-		for(int i=0; i<m[0].length; i++){
+		for(int i=1; i<m[0].length-1; i++){
 			m[0][i]="_";
 		}//top row
 		for(int i=1; i<m.length; i++){

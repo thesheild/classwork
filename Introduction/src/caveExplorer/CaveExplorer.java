@@ -17,6 +17,7 @@ public class CaveExplorer {
 				caves[row][col] = new CaveRoom("This cave has coordinates " + row + "," + col);
 			}
 		}
+		caves[0][2]=new EventRoom("This is the room where that guy with a tail met you", new GameStartEvent());
 		currentRoom = caves[0][1];
 		currentRoom.enter();
 		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
@@ -28,7 +29,7 @@ public class CaveExplorer {
 
 	private static void startExploring() {
 		while(true){
-			System.out.println(inventory.getDescription);
+			System.out.println(inventory.getDescription());
 			System.out.println(currentRoom.getDescription());
 			System.out.print("What would you like to do?");
 			String input = in.nextLine();
@@ -36,5 +37,7 @@ public class CaveExplorer {
 		}
 	}
 	
-	
+	public static void print(String string){
+		System.out.println(string);
+	}
 }
