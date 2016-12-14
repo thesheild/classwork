@@ -62,4 +62,9 @@ public abstract class Component implements Visible {
 		image=new BufferedImage(w,h, BufferedImage.TYPE_INT_ARGB);
 		return image.createGraphics();
 	}
+	new Button(40,50,100,30,"Button",new Color(0,76,153), new Action(){
+		public void act(){
+		   act();
+		}
+		});
 }
