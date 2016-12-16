@@ -49,11 +49,11 @@ public class TextLabel extends Component {
 
 	@Override
 	public void update(Graphics2D g) {
-		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		g = clear(); // deletes previous test 
+		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setColor(Color.black);
 		g.setFont(new Font(font,Font.PLAIN,size));
-		if(text!=null) g.drawString(text,4,getHeight()-5);
-		
+		if(text != null) g.drawString(text, 4, getHeight()-5);
 	}
-
 }
