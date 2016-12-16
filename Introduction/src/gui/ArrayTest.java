@@ -1,7 +1,7 @@
 package gui;
 
 
-public class Practice {
+public class ArrayTest {
 	private static boolean[][] grid;
 
 	public static void main(String[] args){
