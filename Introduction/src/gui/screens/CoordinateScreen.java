@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import gui.Screen;
 import gui.components.Action;
 import gui.components.Button;
+import gui.components.Graphic;
+import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
 
@@ -16,10 +18,11 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 	//FIELD
 		private Button button;
 		private TextLabel text;
+		private TextArea area;
+		private Graphic bowser;
 		
 		public CoordinateScreen(int width, int height) {
 			super(width, height);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override
@@ -35,8 +38,14 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 			});
 			viewObjects.add(button);
 			text = 
-					new TextLabel(20, 200, 500, 40, "Some text");
+					new TextLabel(20, 100, 500, 40, "Some text");
 			viewObjects.add(text);
+			area = 
+					new TextArea(20, 200, 500, 100, "This is a really long text. It prints over mulitple lines, as you can see. We worked on this in class. It is called text area.");
+			viewObjects.add(area);
+			
+			bowser = new Graphic(30,30, .5,"resources/sampleImages/Supergirl.png");
+			viewObjects.add(bowser);
 		}
 
 		public void mouseDragged(MouseEvent e) {
