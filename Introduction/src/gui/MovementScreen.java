@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import gui.components.Visible;
 
-public class MyScreen extends Screen {
+public class MovementScreen extends Screen {
 
-	public MyScreen(int width, int height) {
+	public MovementScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}

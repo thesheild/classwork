@@ -6,7 +6,8 @@ import gui.screens.CoordinateScreen;
 public class MouseFollower extends GuiApplication {
 
 	private static MouseFollower game;//only ONE exists
-	private CoordinateScreen cs;
+	private CoordinateScreen cordScreen;
+	
 
 	public MouseFollower(int width, int height) {
 		super(width, height);
@@ -16,8 +17,8 @@ public class MouseFollower extends GuiApplication {
 	
 	@Override
 	public void initScreen() {
-		cs = new CoordinateScreen(getWidth(), getHeight());
-		setScreen(cs);
+		cordScreen = new CoordinateScreen(getWidth(), getHeight());
+		setScreen(cordScreen);
 	}
 
 	public static void main(String[] args) {

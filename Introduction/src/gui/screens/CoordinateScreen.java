@@ -70,9 +70,9 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			e.getX();
-			e.getY();
+			if(button.isHovered(e.getX(), e.getY())){
+				button.act();
+			}
 		}
 
 		@Override
