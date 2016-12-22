@@ -36,15 +36,16 @@ public class Graphic implements Visible {
 	}
 	private void loadImages(String imageLocation, double scale) {
 		try{
-			//get fullseize image
+			//get the full-size image
 			ImageIcon icon = new ImageIcon(imageLocation);
-			int newWidth = (int) (icon.getIconWidth()*scale);
-			int newHeight = (int) (icon.getIconHeight()*scale);
-			image = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
+			int newWidth = (int) (icon.getIconWidth() * scale);
+			int newHeight = (int) (icon.getIconHeight() * scale);
+			image = new BufferedImage(newWidth,newHeight,BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g = image.createGraphics();
-			g.drawImage(icon.getImage(), 0, 0, newWidth,newHeight,0,0,icon.getIconHeight(),icon.getIconHeight(),null);
-		}
-		catch(Exception e){
+			g.drawImage(icon.getImage(), 0, 0, newWidth, newHeight, 0,0,icon.getIconWidth(), icon.getIconHeight(), null);
+
+			loadedImages = true;
+		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}

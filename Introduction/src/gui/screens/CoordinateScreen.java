@@ -6,7 +6,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-import gui.MouseCoordinateGame;
 import gui.Screen;
 import gui.components.Action;
 import gui.components.Button;
@@ -14,6 +13,7 @@ import gui.components.Graphic;
 import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
+import gui.sampleGames.MouseFollower;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener, MouseListener{
 
@@ -34,7 +34,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 					new Action() {
 				
 				public void act() {
-					MouseCoordinateGame.game.setScreen(MouseCoordinateGame.myScreen);
+					MouseFollower.game.setScreen(MouseFollower.movementScreen);
 				}
 			});
 			viewObjects.add(button);
@@ -45,8 +45,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 					new TextArea(20, 200, 500, 100, "This is a really long text. It prints over mulitple lines, as you can see. We worked on this in class. It is called text area.");
 			viewObjects.add(area);
 			
-			bowser = new Graphic(30,30, .5,"resources/sampleImages/Supergirl.png");
-			viewObjects.add(bowser);
+			//bowser = new Graphic(30,30, .5,"resources/sampleImages/Supergirl.png");
+			//viewObjects.add(bowser);
 		}
 
 		public void mouseDragged(MouseEvent e) {
