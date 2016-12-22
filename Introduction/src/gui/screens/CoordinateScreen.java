@@ -66,7 +66,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		
 		public MouseListener getMouseListener(){
 			return this;
-		}
+		} 
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
