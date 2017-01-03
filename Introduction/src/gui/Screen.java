@@ -49,7 +49,8 @@ public abstract class Screen {
 		g.setColor(Color.black);
 //		for(int i=0; i<viewObjects.size(); i++){
 //		}
-		for(Visible v: viewObjects){
+		for(int i = 0; i<viewObjects.size(); i++){
+			Visible v = viewObjects.get(i);
 			g.drawImage(v.getImage(), v.getX(), v.getY(), null);
 		}
 		
@@ -62,5 +63,75 @@ public abstract class Screen {
 	public MouseListener getMouseListener(){
 		return null;
 	}
+	public void addObject(Visible v) {
+		viewObjects.add(v);
+	}
+
+	public void remove(Visible v) {
+		/*
+		 * note: in this implementation, 
+		 * we have very simple command: remove(v)
+		 * however, remove is a kind of a big deal 
+		 * on the AP Exam. here's why:
+		 * 
+		 * When an object is removed from a list, every 
+		 * other object...
+		 * 
+		 *  Here is a classic example:
+		 *  
+		 *  the following is WRONG
+		 *  Suppose you have a list<interger> with
+		 *  (4,8,7,1)
+		 *  and you want to remove all intergers greater than 5
+		 *  you do this:
+		 *  for (int i=0;i<list.size(); i++){
+		 *  	if (list.get(i)>5) list.remove(i);
+		 *  }
+		 *  YOU FAILED!
+		 *  
+		 *  why do you fail?
+		 *  i=0, nothing changes
+		 *  i=1, the 8 is removed
+		 *  now we have (4,7,1)
+		 *  ...
+		 *  
+		 *  the following is CORRECT:
+		 *  1
+		 *   for (int i=0;i<list.size(); i++){
+		 *  	while (list.get(i)>5) list.remove(i);
+		 *  }
+		 *  2
+		 *  for (int i=0;i<list.size(); i++){
+		 *  	if (list.get(i)>5){
+		 *  		list.remove(i);
+		 *  		i--; //compensate for i++
+		 *  	}
+		 *  }
+		 *  
+		 *  one more note:
+		 *  if you call list.remove(int)
+		 *  it will return the object being removed at that index
+		 *  so you can do something like this
+		 *  system.out.println(list.remove(0).toString...
+		 */
+		viewObjects.remove(v);
+	}
+	
+	public void moveToBack(Visible v){
+		if(viewObjects.contains(v)){
+			viewObjects.remove(v);
+			//the "back " is index 0
+			viewObjects.add(0,v);
+			//this moves everything else forward in the list
+		}
+	}
+	
+	public void moveToFront(Visible v){
+		if(viewObjects.contains(v)){
+			viewObjects.remove(v);
+			viewObjects.add(v);
+		}
+	}
+	
 //you cannot instatiate an abstract class
 }
