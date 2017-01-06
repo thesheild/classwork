@@ -67,7 +67,7 @@ public class WackAMoleScreen extends ClickableScreen implements Runnable {
 	}
 
 	private void appearNewMole() {
-		double chance = .2*(60-timeLeft)/60;
+		double chance = .1*(60-timeLeft)/60;
 		if(Math.random()<chance){
 			final MoleInterface mole = getAMole();
 			mole.setAppearanceTime((int)(500 + Math.random()*2000));

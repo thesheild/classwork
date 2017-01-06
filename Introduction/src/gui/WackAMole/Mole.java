@@ -20,7 +20,7 @@ public class Mole extends ClickableGraphic implements MoleInterface {
 	@Override
 	public void setAppearanceTime(int screenTime) {
 		// TODO Auto-generated method stub
-
+		appearanceTime=screenTime;
 	}
 
 }
