@@ -19,6 +19,8 @@ public class WackAMoleScreen extends ClickableScreen implements Runnable {
 	public WackAMoleScreen(int width, int height) {
 		super(width, height);
 		timeLeft = 30.0;
+		//when making simon, creating a thread like this
+		//is necessary since simons screen changes
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -39,12 +41,12 @@ public class WackAMoleScreen extends ClickableScreen implements Runnable {
 	//this means our code wont work until our partner is done BUT at least our code will compile
 	//DONT FORGET TO CHANGE THIS ONCE YOUR PARTNER IS DONE
 	public PlayerInterface getAPlayer(){
-		return null;
+		return new Player();
 		
 	}
 	
 	public MoleInterface getAMole(){
-		return  new Mole((int)(Math.random() * getWidth()), ((int)(Math.random() * getHeight())));
+		return new Mole((int)(Math.random() * getWidth()), ((int)(Math.random() * getHeight())));
 		
 	}
 	
@@ -111,6 +113,7 @@ public class WackAMoleScreen extends ClickableScreen implements Runnable {
 		timeLabel.setText(""+(int)(timeLeft*10)/10.0);
 	}
 
+	//USE THIS METHOD IN SIMON TOO
 	private void changeText(String string) {
 		label.setText(string);
 		try {
