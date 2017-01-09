@@ -11,13 +11,14 @@ public class SimonGameAnna extends GuiApplication {
 
 	@Override
 	public void initScreen() {
-		// TODO Auto-generated method stub
-
+		SimonScreenAnna ssa = new SimonScreenAnna (getWidth(), getHeight());
+		setScreen(ssa);
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		SimonGameAnna sga = new SimonGameAnna(800,500);
+		Thread game = new Thread(sga);
+		game.start();
 	}
 
 }
