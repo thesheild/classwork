@@ -1,10 +1,10 @@
 package gui.simon;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import gui.ClickableScreen;
-import gui.WackAMole.MoleInterface;
 import gui.components.TextLabel;
 import gui.components.Visible;
 
@@ -38,7 +38,7 @@ public class SimonScreenAnna extends ClickableScreen implements Runnable {
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		addButtons();
-		progress = getProgress();
+		c = getProgress();
 		a = new TextLabel(130,230,300,40,"Let's play Simon!");
 		d = new ArrayList<MoveInterfaceAnna>();
 		//add 2 moves to start
@@ -46,24 +46,27 @@ public class SimonScreenAnna extends ClickableScreen implements Runnable {
 		d.add(randomMove());
 		d.add(randomMove());
 		roundNumber = 0;
-		viewObjects.add(progress);
-		viewObjects.add(label);
+		viewObjects.add(c);
+		viewObjects.add(a);
 	}
 	
-	private MoleInterface randomMove() {
-		int x = (int)(Math.random()*)
+	private MoveInterfaceAnna randomMove() {
+		int x = (int)(Math.random()*b.length);
 		ButtonInterfaceAnna b;
 		return null;
+		//not done
 	}
 
 	//Placeholder until partner finishes implementation of ProgressInterface
-	private Object getProgress() {
+	private ProgressInterfaceAnna getProgress() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Progress();
 	}
 
 	private void addButtons() {
 		// TODO Auto-generated method stub
+		int numberOfButtons = 4;
+		Color[] colors = {Color.red, Color.blue, Color.yellow, Color.pink};
 		
 	}
 
