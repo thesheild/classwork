@@ -46,7 +46,7 @@ public class TextSamplerDemo extends JPanel
         //Create a label to put messages during an action event.
         actionLabel = new JLabel("Type text in a field and press Enter.");
         actionLabel.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
-
+ 
         //Lay out the text controls and the labels.
         JPanel textControlsPane = new JPanel();
         GridBagLayout gridbag = new GridBagLayout();
