@@ -9,9 +9,8 @@ import java.io.IOException;
 
 public class TextSamplerDemo extends JPanel
                              implements ActionListener {
-    protected static final String textFieldString = "JTextField";
-    protected static final String passwordFieldString = "JPasswordField";
-    protected static final String ftfString = "JFormattedTextField";
+    protected static final String textFieldString = "Username";
+    protected static final String passwordFieldString = "Password";
     protected static final String buttonString = "JButton";
 
     protected JLabel actionLabel;
@@ -29,19 +28,11 @@ public class TextSamplerDemo extends JPanel
         passwordField.setActionCommand(passwordFieldString);
         passwordField.addActionListener(this);
 
-        //Create a formatted text field.
-        JFormattedTextField ftf = new JFormattedTextField(
-                java.util.Calendar.getInstance().getTime());
-        ftf.setActionCommand(textFieldString);
-        ftf.addActionListener(this);
-
         //Create some labels for the fields.
         JLabel textFieldLabel = new JLabel(textFieldString + ": ");
         textFieldLabel.setLabelFor(textField);
         JLabel passwordFieldLabel = new JLabel(passwordFieldString + ": ");
         passwordFieldLabel.setLabelFor(passwordField);
-        JLabel ftfLabel = new JLabel(ftfString + ": ");
-        ftfLabel.setLabelFor(ftf);
 
         //Create a label to put messages during an action event.
         actionLabel = new JLabel("Type text in a field and press Enter.");
@@ -54,8 +45,8 @@ public class TextSamplerDemo extends JPanel
 
         textControlsPane.setLayout(gridbag);
 
-        JLabel[] labels = {textFieldLabel, passwordFieldLabel, ftfLabel};
-        JTextField[] textFields = {textField, passwordField, ftf};
+        JLabel[] labels = {textFieldLabel, passwordFieldLabel};
+        JTextField[] textFields = {textField, passwordField};
         addLabelTextRows(labels, textFields, gridbag, textControlsPane);
 
         c.gridwidth = GridBagConstraints.REMAINDER; //last
@@ -64,7 +55,7 @@ public class TextSamplerDemo extends JPanel
         textControlsPane.add(actionLabel, c);
         textControlsPane.setBorder(
                 BorderFactory.createCompoundBorder(
-                                BorderFactory.createTitledBorder("Text Fields"),
+                                BorderFactory.createTitledBorder("Registor or Login"),
                                 BorderFactory.createEmptyBorder(5,5,5,5)));
 
 
