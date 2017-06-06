@@ -52,6 +52,9 @@ class Login extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent ae){
 		user.add("john");
 		pass.add("cena");
+		user.add("daniel");
+		pass.add("quinde");
+		
 		
 		if("register".equals(ae.getActionCommand())){
 			String v1=text1.getText();
@@ -81,17 +84,24 @@ class Login extends JFrame implements ActionListener {
 			
 			String value1=text1.getText();
 			String value2=text2.getText();
-			if (value1.equals("aj") && value2.equals("aj")) {
-				NextPage page=new NextPage();
-				page.setVisible(true);
-				JLabel label = new JLabel("Welcome:"+value1);
-				page.getContentPane().add(label);
+			for(int i=0; i<user.size();i++){
+				if (value1.equals(user.get(i)) && value2.equals(pass.get(i))) {
+					NextPage page=new NextPage();
+					page.setVisible(true);
+					JLabel label = new JLabel("Welcome:"+value1);
+					page.getContentPane().add(label);
+					panel.dispose();
+					
+				}
+//				else{
+//					System.out.println("enter the valid username and password");
+//				 	JOptionPane.showMessageDialog(this,"Incorrect login or password",
+//				 			"Error",JOptionPane.ERROR_MESSAGE);
+//				 	break;
+				 	
+//				}
 			}
-			else{
-				System.out.println("enter the valid username and password");
-			 	JOptionPane.showMessageDialog(this,"Incorrect login or password",
-			 			"Error",JOptionPane.ERROR_MESSAGE);
-			}
+			
 		}
 	}
 }
