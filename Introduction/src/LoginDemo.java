@@ -54,21 +54,24 @@ class Login extends JFrame implements ActionListener {
 		label2 = new JLabel();
 		label2.setText("Password:");
 		text2 = new JPasswordField(15);
-		text2.setPreferredSize(new Dimension(100, 30));
+		//text2.setPreferredSize(new Dimension(100, 30));
 
 		register=new JButton("Register");
 		login = new JButton("Login");
 
 		
-		panel=new JPanel();
-		panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+		//panel=new JPanel();
+		panel=new JPanel(new GridLayout(5,1));
+
+		//panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+		panel.add(Box.createRigidArea(new Dimension(10, 10)));		
+		panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		panel.add(label1);
 		panel.add(text1);
 		panel.add(label2);
 		panel.add(text2);
 		panel.add(register);
 		panel.add(login);
-		panel.add(Box.createRigidArea(new Dimension(10, 100)));
 
 		add(panel,BorderLayout.CENTER);
 		register.setActionCommand("register");
@@ -79,10 +82,10 @@ class Login extends JFrame implements ActionListener {
 
 		setTitle("Register or Login");
 
-		//		  Insets insets = panel.getInsets();
-		//	        Dimension size = register.getPreferredSize();
-		//	        register.setBounds(25 + insets.left, 5 + insets.top,
-		//	                     size.width, size.height);
+//				  Insets insets = panel.getInsets();
+//			        Dimension size = register.getPreferredSize();
+//			        register.setBounds(25 + insets.left, 5 + insets.top,
+//			                     size.width, size.height);
 
 	}
 	private void loadUsers() throws FileNotFoundException {
@@ -145,7 +148,7 @@ class Login extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent ae){
 
-
+		
 		if("register".equals(ae.getActionCommand())){
 			String v1=text1.getText();
 			String v2=text2.getText();
@@ -192,13 +195,13 @@ class Login extends JFrame implements ActionListener {
 					dispose();
 
 				}
-				//				else{
-				//					System.out.println("enter the valid username and password");
-				//				 	JOptionPane.showMessageDialog(this,"Incorrect login or password",
-				//				 			"Error",JOptionPane.ERROR_MESSAGE);
-				//				 	break;
-
-				//				}
+//								else{
+//									System.out.println("enter the valid username and password");
+//								 	JOptionPane.showMessageDialog(this,"Incorrect login or password",
+//								 			"Error",JOptionPane.ERROR_MESSAGE);
+//								 	break;
+//
+//								}
 			}
 
 		}
@@ -211,7 +214,8 @@ class LoginDemo{
 
 		try{
 			Login frame=new Login();
-			frame.setSize(500,500);
+			//frame.setSize(500,500);
+			frame.pack();
 			frame.setVisible(true);
 		}
 		catch(Exception e){
